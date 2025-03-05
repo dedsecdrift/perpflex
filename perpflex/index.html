@@ -1,0 +1,36 @@
+<!-- loading.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="loading-page">
+    <div class="loading-container">
+        <img id="loadingGif" src="loading.gif" alt="Loading...">
+    </div>
+
+    <script>
+        let playCount = 0;
+        let duration = 3000; // Adjust to match your GIF duration (in milliseconds)
+    
+        function checkPlayCount() {
+            playCount++;
+            if (playCount === 3) {
+                document.body.classList.add("fade-out"); // Add transition effect
+                setTimeout(() => {
+                    window.location.href = "goto.html";
+                }, 1000); // Smooth transition duration
+            } else {
+                setTimeout(checkPlayCount, duration);
+            }
+        }
+    
+        // Start counting when the page loads
+        setTimeout(checkPlayCount, duration);
+    </script>
+    
+</body>
+</html>
